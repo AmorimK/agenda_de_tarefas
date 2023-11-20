@@ -1,5 +1,5 @@
 public class OpcaoInvalidaException extends Exception{
 	public OpcaoInvalidaException() {
-        super("Op??o inv?lida. Insira uma op??o v?lida do menu.\n");
+        super("Opção inválida. Insira uma opção válida do menu.\n");
     }
 }
