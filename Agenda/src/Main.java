@@ -10,7 +10,7 @@ public class Main {
         int ano;
 
         try {
-            System.out.println("Insira o m?s referente a Agenda:\n");
+            System.out.println("Insira o mês referente a Agenda:\n");
             mes = ent.nextInt();
             validarMes(mes);
 
@@ -39,7 +39,7 @@ public class Main {
                         int tipo = ent.nextInt();
                         validarTipoTarefa(tipo);
 
-                        System.out.println("Insira o dia em que a tarefa ser? realizada:\n");
+                        System.out.println("Insira o dia em que a tarefa será realizada:\n");
                         dia = ent.nextInt();
                         validarDia(dia);
 
@@ -51,7 +51,7 @@ public class Main {
                         if (tipo == 1) {
                             TarefaSimples tarefaS = new TarefaSimples();
                             ent.nextLine();
-                            System.out.println("Insira a descri??o da tarefa:\n");
+                            System.out.println("Insira a descrição da tarefa:\n");
                             tarefaS.setDesc(ent.nextLine());
 
                             agenda.getData(dia).incluirTarefaSimples(tarefaS);
@@ -60,7 +60,7 @@ public class Main {
                         } else {
                             TarefaComplexa tarefaC = new TarefaComplexa();
                             ent.nextLine();
-                            System.out.println("Insira a descri??o da tarefa:\n");
+                            System.out.println("Insira a descrição da tarefa:\n");
                             tarefaC.setDesc(ent.nextLine());
 
                             int opcao;
@@ -68,12 +68,12 @@ public class Main {
 
                             do {
 
-                                System.out.println("Deseja cadastrar nova Etapa?\n1 - Sim\n2 - N?o");
+                                System.out.println("Deseja cadastrar nova Etapa?\n1 - Sim\n2 - Não");
                                 opcao = ent.nextInt();
 
                                 if (opcao == 1) {
                                     ent.nextLine();
-                                    System.out.println("Insira a descri??o da etapa:\n");
+                                    System.out.println("Insira a descrição da etapa:\n");
                                     String etapadesc = ent.nextLine();
                                     Etapa etapa = new Etapa();
                                     etapa.setDesc(etapadesc);
@@ -100,7 +100,7 @@ public class Main {
                         Data tarefaDia = agenda.getData(diaT);
 
                         if(tarefaDia==null) {
-                        	System.out.println("N?o h? tarefas a serem alteradas.\n");
+                        	System.out.println("Não há tarefas a serem alteradas.\n");
                         }
                         
                         
@@ -116,7 +116,7 @@ public class Main {
                             TarefaSimples tarefaS = new TarefaSimples();
 
                             ent.nextLine();
-                            System.out.println("Insira a descri??o da nova tarefa simples:\n");
+                            System.out.println("Insira a descrição da nova tarefa simples:\n");
                             tarefaS.setDesc(ent.nextLine());
 
                             tarefaDia.altTarefaSimples(posT, tarefaS);
@@ -134,7 +134,7 @@ public class Main {
                             TarefaComplexa tarefaC = new TarefaComplexa();
 
                             ent.nextLine();
-                            System.out.println("Insira a descri??o da nova tarefa complexa:\n");
+                            System.out.println("Insira a descrição da nova tarefa complexa:\n");
                             tarefaC.setDesc(ent.nextLine());
 
                             int opcao;
@@ -142,12 +142,12 @@ public class Main {
 
                             do {
 
-                                System.out.println("Deseja cadastrar nova Etapa?\n1 - Sim\n2 - N?o");
+                                System.out.println("Deseja cadastrar nova Etapa?\n1 - Sim\n2 - Não");
                                 opcao = ent.nextInt();
 
                                 if (opcao == 1) {
                                     ent.nextLine();
-                                    System.out.println("Insira a descri??o da etapa:\n");
+                                    System.out.println("Insira a descrição da etapa:\n");
                                     String etapadesc = ent.nextLine();
                                     Etapa etapa = new Etapa();
                                     etapa.setDesc(etapadesc);
@@ -174,7 +174,7 @@ public class Main {
                         Data tarefaDia = agenda.getData(diaT);
 
                         if(tarefaDia==null) {
-                        	System.out.println("N?o h? tarefas a serem exclu?das.\n");
+                        	System.out.println("Não há tarefas a serem excluídas.\n");
                         }
 
                         else if (tipo == 1) {
@@ -210,7 +210,7 @@ public class Main {
                             Data diaEscolhido = agenda.getData(dia);
                             
                             if(diaEscolhido == null) {
-                            	System.out.println("N?o h? tarefas a serem exibidas.\n");
+                            	System.out.println("Não há tarefas a serem exibidas.\n");
                             	
                             }
                       
@@ -239,14 +239,14 @@ public class Main {
                                     for (int i = 0; i < qtdS; i++) {
                                         TarefaSimples[] tarefaS = diaAtual.getListaS();
                                         if (tarefaS[i].getDesc().toLowerCase().contains(palavraChave)) {
-                                            System.out.println("Tipo: Tarefa Simples\nDescri??o: " + tarefaS[i].getDesc() + "\n");
+                                            System.out.println("Tipo: Tarefa Simples\nDescrição: " + tarefaS[i].getDesc() + "\n");
                                         }
                                     }
 
                                     for (int i = 0; i < qtdC; i++) {
                                         TarefaComplexa[] tarefaC = diaAtual.getListaC();
                                         if (tarefaC[i].getDesc().toLowerCase().contains(palavraChave)) {
-                                            System.out.println("Tipo: Tarefa Complexa\nDescri??o: " + tarefaC[i].getDesc() + "\n");
+                                            System.out.println("Tipo: Tarefa Complexa\nDescrição: " + tarefaC[i].getDesc() + "\n");
                                         }
 
                                     }
@@ -262,7 +262,7 @@ public class Main {
             }
 
         } catch(InputMismatchException e) {
-        	System.out.println("Erro: Tipo de entrada inv?lida\n");
+        	System.out.println("Erro: Tipo de entrada inválida\n");
         }
         catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
