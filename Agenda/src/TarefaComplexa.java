@@ -20,7 +20,7 @@ public class TarefaComplexa extends TarefaSimples{
 		qtd++;
 		}
 		else {
-			System.out.println("Quantidade de etapas cheio\n");
+			System.out.println("Quantidade máxima de etapas atingida.\n");
 		}
 		
 	}
