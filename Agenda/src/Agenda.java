@@ -43,7 +43,7 @@ public class Agenda {
 	}
 	
 	
-	public void exibirTodos() { // falta terminar
+	public void exibirTodos() {
 		for(int i = 1; i<datas.length+1; i++) {
 			if(checkData(i)){
 			System.out.println("Dia "+ (i));
