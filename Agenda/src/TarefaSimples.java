@@ -1,17 +1,12 @@
-public class TarefaSimples {
-	
-	private String desc;
-	
-	public TarefaSimples() {}
+public class TarefaSimples extends Tarefa {
 
-	public String getDesc() {
-		return desc;
-	}
+  public TarefaSimples(String desc) {
+    super(desc);
+  }
 
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-	
-
+  @Override
+  public void exibirDetalhes() {
+    System.out.println("Tipo: Tarefa Simples");
+    System.out.println("Descrição: " + this.getDesc() + "\n");
+  }
 }
-

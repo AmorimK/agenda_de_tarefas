@@ -1,42 +1,52 @@
-public class TarefaComplexa extends TarefaSimples{
-	
-	private Etapa[] etapas = new Etapa[3];
-	private int qtd = 0;
-	
-	public TarefaComplexa() {}
-	
-	public void exibeEtapas() {
-		for(int i = 0; i<etapas.length; i++) {
-			if(etapas[i]!=null){
-			System.out.println(etapas[i].getDesc());
-			}
-		}
-	}
-	
-	public void incluirEtapa(Etapa etapa) {
-		
-		if(qtd<etapas.length) {
-		this.etapas[qtd] = etapa;
-		qtd++;
-		}
-		else {
-			System.out.println("Quantidade máxima de etapas atingida.\n");
-		}
-		
-	}
-	
-	public void excluirEtapa(int i) {
-		
-		if(i==etapas.length) {
-			qtd--;
-		}
-		else {
-			for(int j = i; j<etapas.length; j++) {
-				etapas[j] = etapas[j++];
-				qtd--;
-			}
-		}
-		
-	}
-}
+import java.util.ArrayList;
 
+public class TarefaComplexa extends Tarefa {
+
+  // Usa ArrayList em vez de array fixo
+  private ArrayList<Etapa> etapas = new ArrayList<>();
+
+  public TarefaComplexa(String desc) {
+    super(desc);
+  }
+
+  /**
+   * Retorna uma String formatada de todas as etapas.
+   */
+  public String getEtapasComoString() {
+    if (etapas.isEmpty()) {
+      return "  (Nenhuma etapa cadastrada)\n";
+    }
+
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < etapas.size(); i++) {
+      sb.append("  - Etapa " + (i + 1) + ": " + etapas.get(i).getDesc() + "\n");
+    }
+    return sb.toString();
+  }
+
+  @Override
+  public void exibirDetalhes() {
+    System.out.println("Tipo: Tarefa Complexa");
+    System.out.println("Descrição: " + this.getDesc());
+    System.out.print(getEtapasComoString()); // Reutiliza o método
+    System.out.println();
+  }
+
+  public void incluirEtapa(Etapa etapa) {
+    this.etapas.add(etapa);
+    System.out.println("Etapa cadastrada com sucesso.\n");
+  }
+
+  public void excluirEtapa(int i) {
+    if (i >= 0 && i < etapas.size()) {
+      etapas.remove(i);
+      System.out.println("Etapa removida com sucesso.\n");
+    } else {
+      System.out.println("Erro: Posição da etapa inválida.\n");
+    }
+  }
+
+  public int getQtdEtapas() {
+    return etapas.size();
+  }
+}

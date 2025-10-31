@@ -1,8 +1,8 @@
-public class Etapa {
+public abstract class Tarefa {
 
   private String desc;
 
-  public Etapa(String desc) {
+  public Tarefa(String desc) {
     this.desc = desc;
   }
 
@@ -13,4 +13,6 @@ public class Etapa {
   public void setDesc(String desc) {
     this.desc = desc;
   }
+
+  public abstract void exibirDetalhes();
 }
